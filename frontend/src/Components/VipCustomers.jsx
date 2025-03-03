@@ -3,12 +3,12 @@ import { motion } from "framer-motion";
 import Title from "./Title";
 
 const VipCustomers = [
-  { name: "Shah Rukh Khan", image: "public/shahrukkhan.jpg" },
-  { name: "Andrew Tate", image: "public/andrewtate.webp" },
-  { name: "Ranbir Kapoor", image: "public/ranbir.jpg" },
-  { name: "Virat Kohli", image: "public/viratkohli.webp" },
-  { name: "Tristan Tate", image: "public/tristan.webp" },
-  { name: "Hardik Pandya", image: "public/hardik.webp" },
+  { name: "Shah Rukh Khan", image: "/shahrukkhan.jpg" },
+  { name: "Andrew Tate", image: "/andrewtate.webp" },
+  { name: "Ranbir Kapoor", image: "/ranbir.jpg" },
+  { name: "Virat Kohli", image: "/viratkohli.webp" },
+  { name: "Tristan Tate", image: "/tristan.webp" },
+  { name: "Hardik Pandya", image: "/hardik.webp" },
 ];
 
 const VipCards = () => {
