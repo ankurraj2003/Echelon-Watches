@@ -31,7 +31,10 @@ const Cart = () => {
       </div>
       {cartData.length === 0 ? (
         <div className="text-center text-gray-500 text-xl py-20">
-          <img className=" w-10 h-10 mx-auto mb-4" src="public/empty.png"></img>
+          <img
+            className=" w-10 h-10 mx-auto mb-4"
+            src="src/assets/empty.png"
+          ></img>
           Your cart is empty.
         </div>
       ) : (
