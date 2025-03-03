@@ -14,6 +14,7 @@ import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Searchbar from "./Components/SearchBar";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 const App = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -44,6 +45,7 @@ const App = () => {
 
           <Footer />
           <Analytics />
+          <SpeedInsights />
         </div>
       )}
     </>
