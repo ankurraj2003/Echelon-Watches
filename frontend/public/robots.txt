@@ -1,0 +1,21 @@
+User-agent: *
+Disallow: /admin/
+Disallow: /cart/
+Disallow: /checkout/
+Disallow: /account/
+Disallow: /wp-admin/
+Allow: /wp-admin/admin-ajax.php
+
+# Allow indexing of important pages
+Allow: /collections/
+Allow: /products/
+Allow: /blogs/
+Allow: /reviews/
+
+# Block duplicate content and search pages
+Disallow: /search/
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+# Sitemap for better crawling
+Sitemap: https://echelon-watches-frontend.vercel.app/sitemap.xml
