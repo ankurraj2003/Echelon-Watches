@@ -13,7 +13,7 @@ const Hero = () => {
       <div className="absolute  inset-0 w-full h-full overflow-hidden">
         <video
           className="w-full h-full object-cover"
-          src="public/hero.mp4"
+          src="/hero.mp4"
           autoPlay
           loop
           muted

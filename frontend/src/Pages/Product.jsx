@@ -55,32 +55,16 @@ const Product = ({}) => {
           <h1 className="font-medium text-2xl mt-4">{productData.name}</h1>
           <div className="flex items-center gap-1 mt-4">
             {" "}
+            <img src="/staryellow-Photoroom.png" alt="star" className="w-5" />
             <img
-              src="/Public/staryellow-Photoroom.png"
-              alt="star"
-              className="w-5"
-            />
-            <img
-              src="/Public/staryellow-Photoroom.png"
+              src="/staryellow-Photoroom.png"
               alt="star"
               className="w-5
               "
             />
-            <img
-              src="/Public/staryellow-Photoroom.png"
-              alt="star"
-              className="w-5"
-            />
-            <img
-              src="/Public/staryellow-Photoroom.png"
-              alt="star"
-              className="w-5"
-            />
-            <img
-              src="/Public/stargrey-Photoroom.png"
-              alt="star"
-              className="w-4"
-            />
+            <img src="/staryellow-Photoroom.png" alt="star" className="w-5" />
+            <img src="/staryellow-Photoroom.png" alt="star" className="w-5" />
+            <img src="/stargrey-Photoroom.png" alt="star" className="w-4" />
           </div>
           <p className="mt-5 text-3xl font-medium font-sans text-green-600">
             {currency}

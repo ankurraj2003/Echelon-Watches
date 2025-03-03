@@ -8,7 +8,7 @@ const About = () => {
         <Title text1={" ABOUT"} text2={"US"}></Title>
       </div>
       <div className="my-10 flex flex-col md:flex-row gap-16">
-        <img className="w-full md:max-w-[450px]" src="public/about.jpg"></img>
+        <img className="w-full md:max-w-[450px]" src="/about.jpg"></img>
         <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-400">
           <p className="text-gray-400">
             At Echelon, we believe that time is more than just a measure—it’s a
@@ -36,14 +36,14 @@ const About = () => {
             <a href="https://www.instagram.com/ankurr4j/?hl=en" target="_blank">
               <img
                 className="w-10"
-                src="public/insta.webp"
+                src="/insta.webp"
                 alt="Ankur Raj INSTAGRAM"
               ></img>
             </a>
             <a href="https://github.com/ankurraj007" target="_blank">
               <img
                 className="w-10 ml-4"
-                src="public/github.png"
+                src="/github.png"
                 alt="Ankur Raj GITHUB"
               ></img>
             </a>
