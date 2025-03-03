@@ -12,7 +12,7 @@ import PlaceOrder from "./Pages/PlaceOrder";
 import Orders from "./Pages/Orders";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
-import Searchbar from "./Components/Searchbar";
+import Searchbar from "./Components/SearchBar";
 const App = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
