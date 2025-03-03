@@ -67,7 +67,7 @@ const Add = ({ token }) => {
           <label htmlFor="image1">
             <img
               className="w-28 sm:w-60 mt-4 cursor-grab"
-              src={!image1 ? "public/upload.jpg" : URL.createObjectURL(image1)}
+              src={!image1 ? "/upload.jpg" : URL.createObjectURL(image1)}
               alt="Upload item image"
             ></img>
             <input
@@ -80,7 +80,7 @@ const Add = ({ token }) => {
           <label htmlFor="image2">
             <img
               className="w-28 sm:w-60 mt-4 cursor-grab"
-              src={!image2 ? "public/upload.jpg" : URL.createObjectURL(image2)}
+              src={!image2 ? "/upload.jpg" : URL.createObjectURL(image2)}
               alt="Upload item image"
             ></img>
             <input
@@ -93,7 +93,7 @@ const Add = ({ token }) => {
           <label htmlFor="image3">
             <img
               className="w-28 sm:w-60 mt-4 cursor-grab"
-              src={!image3 ? "public/upload.jpg" : URL.createObjectURL(image3)}
+              src={!image3 ? "/upload.jpg" : URL.createObjectURL(image3)}
               alt="Upload item image"
             ></img>
             <input
@@ -106,7 +106,7 @@ const Add = ({ token }) => {
           <label htmlFor="image4">
             <img
               className="w-28 sm:w-60 mt-4 cursor-grab"
-              src={!image4 ? "public/upload.jpg" : URL.createObjectURL(image4)}
+              src={!image4 ? "/upload.jpg" : URL.createObjectURL(image4)}
               alt="Upload item image"
             ></img>
             <input

@@ -9,21 +9,21 @@ const Sidebar = () => {
           className="flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
           to="/add"
         >
-          <img className="w-5" src="/public/add.png"></img>
+          <img className="w-5" src="/add.png"></img>
           <p className="hidden md:block">Add Items</p>
         </NavLink>
         <NavLink
           className="flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
           to="/list"
         >
-          <img className="w-5" src="/public/list.png"></img>
+          <img className="w-5" src="/list.png"></img>
           <p className="hidden md:block">List Items</p>
         </NavLink>
         <NavLink
           className="flex items-center gap-3 border border-gray-300 border-r-0 px-3 py-2 rounded-l"
           to="/orders"
         >
-          <img className="w-5" src="/public/order.png"></img>
+          <img className="w-5" src="/order.png"></img>
           <p className="hidden md:block">Orders</p>
         </NavLink>
       </div>

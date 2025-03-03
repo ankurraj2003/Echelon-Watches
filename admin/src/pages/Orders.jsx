@@ -59,7 +59,7 @@ const Orders = ({ token }) => {
             className="grid grid-cols-1 sm:grid-cols-[0.5fr_2fr_1fr] lg:grid-cols-[0.5fr_2fr_1fr_1fr_1fr] gap-3 items-start border-2 border-gray-600 p-5 md:p-8 my-3 md:my-4 "
             key={index}
           >
-            <img className="w-9 mt-4" src="/public/parcel.png"></img>
+            <img className="w-9 mt-4" src="/parcel.png"></img>
             <div>
               <div>
                 {order.items.map((item, index) => {
