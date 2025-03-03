@@ -195,11 +195,7 @@ const PlaceOrder = () => {
                 method === "stripe" ? "border border-green-600" : ""
               }`}
             >
-              <img
-                className="h-10 mx-4 "
-                src="public/stripe.png"
-                alt="stripe"
-              />
+              <img className="h-10 mx-4 " src="/stripe.png" alt="stripe" />
             </div>
             <div
               onClick={() => setMethod("razorpay")}
@@ -209,7 +205,7 @@ const PlaceOrder = () => {
             >
               <img
                 className="h-5 mx-4 "
-                src="public/razorpay-Photoroom.png"
+                src="/razorpay-Photoroom.png"
                 alt="Razorpay"
               />
             </div>
@@ -221,7 +217,7 @@ const PlaceOrder = () => {
             >
               <img
                 className="h-8 mx-4 "
-                src="public/banktransfer-Photoroom.png"
+                src="/banktransfer-Photoroom.png"
                 alt="Banktransfer"
               />
             </div>
