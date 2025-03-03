@@ -13,6 +13,7 @@ import Orders from "./Pages/Orders";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
 import Searchbar from "./Components/SearchBar";
+import { Analytics } from "@vercel/analytics/react";
 const App = () => {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -42,6 +43,7 @@ const App = () => {
           </Routes>
 
           <Footer />
+          <Analytics />
         </div>
       )}
     </>
