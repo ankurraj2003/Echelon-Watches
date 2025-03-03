@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./components/Navbar";
-import Adminpanel from "./components/AdminPanel";
+import Adminpanel from "./components/Adminpanel";
 import Sidebar from "./components/Sidebar";
 import { Route, Routes } from "react-router-dom";
 import Add from "./pages/Add";
