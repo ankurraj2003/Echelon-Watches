@@ -49,11 +49,13 @@ const Navbar = () => {
           className=" ml-2 w-9 cursor-pointer"
         ></img>
         <div className="group relative">
-          <img
-            onClick={() => (token ? null : navigate("/login"))}
-            className=" w-7 cursor-pointer"
-            src="/profile.png"
-          />
+          <div className="w-7 h-7 flex items-center justify-center">
+            <img
+              onClick={() => (token ? null : navigate("/login"))}
+              className="w-full h-full object-contain cursor-pointer"
+              src="/profile.png"
+            />
+          </div>
           {token && (
             <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4  z-50">
               <div className="flex flex-col gap-2 w-36  py-3 px-5 bg-slate-100 text-gray-500 rounded">
@@ -88,7 +90,7 @@ const Navbar = () => {
         <img
           onClick={() => setVisible(true)}
           src="/menu.png"
-          className="w-7 cursor-pointer sm:block md:hidden"
+          className="w-7 mr-3 cursor-pointer sm:block md:hidden"
         />
       </div>
       {/* sidebar menu for small screen */}
