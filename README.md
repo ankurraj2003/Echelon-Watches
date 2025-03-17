@@ -1,6 +1,17 @@
 # Echelon Watches  
 🔗 Live Demo: www.echelonwatches.shop
 
+## 🖼 Screenshots
+### 🏠 Homepage
+![Homepage Screenshot](https://github.com/ankurraj007/Echelon-Watches/blob/main/Screenshot%202025-03-17%20192034.png?raw=true)
+### 🛒 Product Page
+![Product Page Screenshot](https://github.com/ankurraj007/Echelon-Watches/blob/main/Screenshot%202025-03-17%20192045.png?raw=true)
+### 🛒Cart Page
+![Cart Page Screenshot](https://github.com/ankurraj007/Echelon-Watches/blob/main/Screenshot%202025-03-17%20192104.png?raw=true)
+### 🔑 Admin Panel
+![Admin Panel Screenshot](https://github.com/ankurraj007/Echelon-Watches/blob/main/Screenshot%202025-03-17%20192201.png?raw=true)
+
+
 ## 📌 Description
 Echelon Watches is a luxury watch e-commerce platform offering a seamless shopping experience with an intuitive UI, powerful sorting features, and an admin panel for easy management.
 
@@ -19,17 +30,6 @@ Echelon Watches is a luxury watch e-commerce platform offering a seamless shoppi
 - **Database:** MongoDB
 - **Authentication:** JWT (JSON Web Token), Bcrypt
 - **Payment Integration:** Stripe, Razorpay
-
-## 🖼 Screenshots
-### 🏠 Homepage
-![Homepage Screenshot](https://github.com/ankurraj007/Echelon-Watches/blob/main/Screenshot%202025-03-17%20192034.png?raw=true)
-### 🛒 Product Page
-![Product Page Screenshot](https://github.com/ankurraj007/Echelon-Watches/blob/main/Screenshot%202025-03-17%20192045.png?raw=true)
-### 🛒Cart Page
-![Cart Page Screenshot](https://github.com/ankurraj007/Echelon-Watches/blob/main/Screenshot%202025-03-17%20192104.png?raw=true)
-
-### 🔑 Admin Panel
-![Admin Panel Screenshot](https://github.com/ankurraj007/Echelon-Watches/blob/main/Screenshot%202025-03-17%20192201.png?raw=true)
 
 ## 🛠 Installation
 ```bash
