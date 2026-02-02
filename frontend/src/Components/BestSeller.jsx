@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../Context/ShopContext";
+import { Link } from "react-router-dom";
 import Title from "./Title";
-import ProductItem from "./ProductItem";
+import LazyImage from "./LazyImage";
 
 const BestSeller = () => {
-  const { products } = useContext(ShopContext);
+  const { products, currency } = useContext(ShopContext);
   const [bestSeller, setBestSeller] = useState([]);
 
   useEffect(() => {
@@ -25,23 +26,24 @@ const BestSeller = () => {
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {bestSeller.map((product) => (
-          <div
-            className="flex flex-col items-center text-center"
+        {bestSeller.map((product, index) => (
+          <Link
+            to={`/product/${product._id}`}
+            className="flex flex-col items-center text-center cursor-pointer"
             key={product._id}
           >
-            <div className="w-full h-80 bg-white-100 rounded-xl overflow-hidden transition-transform duration-300  hover:scale-110 ">
-              <img
+            <div className="w-full h-80 bg-white-100 rounded-xl overflow-hidden transition-transform duration-300 hover:scale-110">
+              <LazyImage
                 src={product.image[0]}
                 alt={product.name}
                 className="object-contain w-full h-full"
-                loading="lazy"
-                decoding="async"
+                containerClassName="w-full h-full"
+                priority={index < 4} // First 4 images load with priority
               />
             </div>
             <h3 className="mt-4 font-semibold text-lg w-52">{product.name}</h3>
-            <p className="text-green-600 font-sans mt-1">₹{product.price}</p>
-          </div>
+            <p className="text-green-600 font-sans mt-1">{currency}{product.price}</p>
+          </Link>
         ))}
       </div>
     </div>

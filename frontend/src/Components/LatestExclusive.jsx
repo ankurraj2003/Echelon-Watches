@@ -23,7 +23,7 @@ const LatestExclusive = () => {
         </p>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {latestProducts.map((product) => (
+        {latestProducts.map((product, index) => (
           <div
             key={product._id}
             className="p-4 rounded-lg transition-transform duration-300 hover:scale-110 hover:shadow-lg"
@@ -33,6 +33,7 @@ const LatestExclusive = () => {
               image={product.image}
               name={product.name}
               price={product.price}
+              priority={index < 4} // First 4 images load with priority
             />
           </div>
         ))}

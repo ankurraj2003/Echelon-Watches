@@ -82,9 +82,8 @@ const Collection = () => {
         </p>
         {/**category filter */}
         <div
-          className={`border border-gray-300 pl-5 py-3 mt-6 ${
-            showFilter ? "" : "hidden"
-          } sm:block`}
+          className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? "" : "hidden"
+            } sm:block`}
         >
           {" "}
           <p className="mb-3 text-sm font-medium">CATEGORIES</p>
@@ -111,9 +110,8 @@ const Collection = () => {
         </div>
         {/**subcategory filter */}
         <div
-          className={`border border-gray-300 pl-5 py-3 my-5 ${
-            showFilter ? "" : "hidden"
-          } sm:block`}
+          className={`border border-gray-300 pl-5 py-3 my-5 ${showFilter ? "" : "hidden"
+            } sm:block`}
         >
           <p className="mb-3 text-sm font-medium">SHOP BY BRAND</p>
           <div className="flex flex-col gap-2 text-sm font-light text-gray-700">
@@ -202,13 +200,13 @@ const Collection = () => {
         {/**mapproducts */}
         <div className="kanit-light grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-180 gap-4 gap-y-6 mt-14  ">
           {filterProducts.map((item, index) => (
-            <div className="transition-transform duration-300  hover:scale-110">
+            <div key={item._id} className="transition-transform duration-300  hover:scale-110">
               <ProductItem
-                key={index}
                 name={item.name}
                 id={item._id}
                 price={item.price}
                 image={item.image}
+                priority={index < 8} // First 8 images load with priority
               />
             </div>
           ))}

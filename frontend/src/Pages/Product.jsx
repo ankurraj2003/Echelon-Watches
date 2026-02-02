@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../Context/ShopContext";
 import RelatedProducts from "../Components/RelatedProducts";
+import LazyImage from "../Components/LazyImage";
 
 const Product = ({ }) => {
   const { ProductId } = useParams();
@@ -32,25 +33,29 @@ const Product = ({ }) => {
           {/** Thumbnails */}
           <div className="flex sm:flex-col overflow-x-auto overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
             {productData.image.map((item, index) => (
-              <img
+              <div
                 onClick={() => setImage(item)}
-                src={item}
                 key={index}
-                className="w-1/6 sm:w-full cursor-pointer product-image "
-                alt={`Thumbnail ${index + 1}`}
-                loading="lazy"
-                decoding="async"
-              />
+                className="w-1/6 sm:w-full cursor-pointer product-image"
+              >
+                <LazyImage
+                  src={item}
+                  alt={`Thumbnail ${index + 1}`}
+                  className="w-full h-full object-contain"
+                  containerClassName="w-full aspect-square"
+                  priority={true}
+                />
+              </div>
             ))}
           </div>
           {/** Main Image */}
           <div className="w-full sm:w-[80%]">
-            <img
-              className="w-full max-h-[60vh] mt-20 h-auto rounded-lg object-contain"
+            <LazyImage
               src={image}
               alt="Selected Product"
-              loading="lazy"
-              decoding="async"
+              className="w-full max-h-[60vh] mt-20 h-auto rounded-lg object-contain"
+              containerClassName="w-full min-h-[300px]"
+              priority={true}
             />
           </div>
         </div>
