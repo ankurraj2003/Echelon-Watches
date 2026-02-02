@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { ShopContext } from "../Context/ShopContext";
 import RelatedProducts from "../Components/RelatedProducts";
 
-const Product = ({}) => {
+const Product = ({ }) => {
   const { ProductId } = useParams();
   const { products, currency, addToCart } = useContext(ShopContext);
   const [productData, setProductData] = useState(null);
@@ -38,6 +38,8 @@ const Product = ({}) => {
                 key={index}
                 className="w-1/6 sm:w-full cursor-pointer product-image "
                 alt={`Thumbnail ${index + 1}`}
+                loading="lazy"
+                decoding="async"
               />
             ))}
           </div>
@@ -47,6 +49,8 @@ const Product = ({}) => {
               className="w-full max-h-[60vh] mt-20 h-auto rounded-lg object-contain"
               src={image}
               alt="Selected Product"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
