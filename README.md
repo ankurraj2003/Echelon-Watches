@@ -1,5 +1,5 @@
 # Echelon Watches  
-🔗 Live Demo: www.echelonwatches.shop
+🔗 Live Demo: [www.echelonwatches.shop](https://echelonwatches.vercel.app)
 
 ## 🖼 Screenshots
 ### 🏠 Homepage
