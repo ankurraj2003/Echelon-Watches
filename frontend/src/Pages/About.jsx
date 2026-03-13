@@ -33,14 +33,14 @@ const About = () => {
             <i className="text-purple-600"> Email: Rajguptaankur@gmail.com</i>
           </p>
           <div className="flex flex-row ">
-            <a href="https://www.instagram.com/ankurr4j/?hl=en" target="_blank">
+            <a href="https://www.instagram.com/ankurrajsahu/?hl=en" target="_blank">
               <img
                 className="w-10"
                 src="/insta.webp"
                 alt="Ankur Raj INSTAGRAM"
               ></img>
             </a>
-            <a href="https://github.com/ankurraj007" target="_blank">
+            <a href="https://github.com/ankurraj2003" target="_blank">
               <img
                 className="w-10 ml-4"
                 src="/github.png"
