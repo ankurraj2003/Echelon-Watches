@@ -2,11 +2,12 @@
 <html lang="en">
 
 <head>
-  <!-- Preconnect to critical third-party origins -->
+  <!-- DNS prefetch + preconnect to critical third-party origins -->
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://res.cloudinary.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
   <link rel="preconnect" href="https://echelon-watches-backend.vercel.app" crossorigin />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
   <!-- Open Graph Meta Tags -->
   <meta property="og:title" content="ECHELON - Luxury Watches for Timeless Elegance" />
@@ -59,6 +60,17 @@
   <h1><!--dfsbvf--> </h1>
   <h2></h2>
   <h3></h3>
+
+  <!-- Early API prefetch: starts product list fetch BEFORE the JS bundle loads -->
+  <script>
+    (function() {
+      var backendUrl = 'https://echelon-watches-backend.vercel.app';
+      window.__PREFETCHED_PRODUCTS__ = fetch(backendUrl + '/api/product/list')
+        .then(function(r) { return r.json(); })
+        .catch(function() { return null; });
+    })();
+  </script>
+
   <div id="root"></div>
   <script type="module" src="src/main.jsx"></script>
 </body>

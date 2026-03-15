@@ -119,13 +119,29 @@ const ShopContextProvider = (props) => {
 
   const getproductsData = async () => {
     try {
-      const response = await axios.get(backendUrl + "/api/product/list");
-      if (response.data.success) {
-        const optimized = optimizeProducts(response.data.products);
+      // Try to use the early-prefetched data from the inline script in index.html
+      let data = null;
+      if (window.__PREFETCHED_PRODUCTS__) {
+        try {
+          data = await window.__PREFETCHED_PRODUCTS__;
+          window.__PREFETCHED_PRODUCTS__ = null; // consume once
+        } catch (e) {
+          data = null;
+        }
+      }
+
+      // Fallback to regular fetch if prefetch didn't work
+      if (!data || !data.success) {
+        const response = await axios.get(backendUrl + "/api/product/list");
+        data = response.data;
+      }
+
+      if (data.success) {
+        const optimized = optimizeProducts(data.products);
         setproducts(optimized);
         preloadImages(optimized);
       } else {
-        toast.error(response.data.message);
+        toast.error(data.message);
       }
     } catch (error) {
       console.log(error);
