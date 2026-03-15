@@ -42,6 +42,9 @@ const VipCards = () => {
               src={customer.image}
               alt={customer.name}
               className="w-full h-full object-cover"
+              loading="lazy"
+              width="320"
+              height="256"
             />
             <div className="absolute bottom-0 bg-black bg-opacity-50 w-full p-4">
               <p className="text-white text-lg font-bold">{customer.name}</p>

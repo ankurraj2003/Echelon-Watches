@@ -89,6 +89,24 @@ const ShopContextProvider = (props) => {
     return totalCount;
   };
 
+  // Optimize Cloudinary URLs to serve WebP/AVIF with auto quality (60-80% smaller)
+  const optimizeCloudinaryUrl = (url) => {
+    if (typeof url === "string" && url.includes("res.cloudinary.com") && !url.includes("f_auto")) {
+      return url.replace("/upload/", "/upload/f_auto,q_auto/");
+    }
+    return url;
+  };
+
+  // Apply Cloudinary optimization to all product image URLs
+  const optimizeProducts = (productList) => {
+    return productList.map((product) => ({
+      ...product,
+      image: product.image
+        ? product.image.map((img) => optimizeCloudinaryUrl(img))
+        : product.image,
+    }));
+  };
+
   // Preload product images into browser cache so they render instantly
   const preloadImages = (productList) => {
     productList.forEach((product) => {
@@ -102,10 +120,10 @@ const ShopContextProvider = (props) => {
   const getproductsData = async () => {
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
-      console.log(response.data);
       if (response.data.success) {
-        setproducts(response.data.products);
-        preloadImages(response.data.products);
+        const optimized = optimizeProducts(response.data.products);
+        setproducts(optimized);
+        preloadImages(optimized);
       } else {
         toast.error(response.data.message);
       }
