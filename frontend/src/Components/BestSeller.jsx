@@ -35,6 +35,8 @@ const BestSeller = () => {
                 src={product.image[0]}
                 alt={product.name}
                 className="object-contain w-full h-full"
+                loading="eager"
+                fetchpriority="high"
               />
             </div>
             <h3 className="mt-4 font-semibold text-lg w-52">{product.name}</h3>

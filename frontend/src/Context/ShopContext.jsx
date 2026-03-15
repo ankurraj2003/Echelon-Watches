@@ -89,12 +89,23 @@ const ShopContextProvider = (props) => {
     return totalCount;
   };
 
+  // Preload product images into browser cache so they render instantly
+  const preloadImages = (productList) => {
+    productList.forEach((product) => {
+      if (product.image && product.image.length > 0) {
+        const img = new Image();
+        img.src = product.image[0];
+      }
+    });
+  };
+
   const getproductsData = async () => {
     try {
       const response = await axios.get(backendUrl + "/api/product/list");
       console.log(response.data);
       if (response.data.success) {
         setproducts(response.data.products);
+        preloadImages(response.data.products);
       } else {
         toast.error(response.data.message);
       }
