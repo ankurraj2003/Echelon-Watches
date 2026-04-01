@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    // Attempt to auto-play video, a common issue on mobile browsers
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Auto-play was prevented by the browser:", error);
+      });
+    }
+  }, []);
+
   return (
     <div
       className="relative h-screen overflow-hidden -mt-[80px]"
@@ -13,15 +24,15 @@ const Hero = () => {
       {/* Fullscreen video background */}
       <div className="absolute inset-0 w-full h-full">
         <video
+          ref={videoRef}
           className="w-full h-full object-cover"
-          src="/hero.webm"
-          poster="/hero-poster.webp"
           autoPlay
           loop
           muted
-          preload="auto"
           playsInline
-        ></video>
+        >
+          <source src="/hero.webm" type="video/webm" />
+        </video>
       </div>
 
       {/* Subtle dark overlay for better text readability */}
