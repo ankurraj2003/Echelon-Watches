@@ -7,10 +7,14 @@ const Hero = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
-      className="relative w-full h-screen"
+      className="relative h-screen overflow-hidden -mt-[80px]"
+      style={{
+        width: '100vw',
+        marginLeft: 'calc(-50vw + 50%)',
+      }}
     >
-      {/* Fullscreen container for video */}
-      <div className="absolute  inset-0 w-full h-full overflow-hidden">
+      {/* Fullscreen video background */}
+      <div className="absolute inset-0 w-full h-full">
         <video
           className="w-full h-full object-cover"
           src="/hero.webm"
@@ -22,8 +26,11 @@ const Hero = () => {
         ></video>
       </div>
 
+      {/* Subtle dark overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/30"></div>
+
       {/* Content overlay */}
-      <div className="relative z-10 flex items-center justify-center h-full">
+      <div className="relative z-10 flex items-center justify-center h-full px-6">
         <div className="text-center max-w-xl">
           <h1 className="tangerine-regular text-3xl sm:py-3 lg:text-5xl text-gray-300 leading-relaxed">
             A fine watch is a statement of elegance, a piece of art you wear on

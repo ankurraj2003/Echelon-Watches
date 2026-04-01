@@ -28,22 +28,29 @@ const App = () => {
       {loading ? (
         <Loader />
       ) : (
-        <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-          <Navbar></Navbar>
-          <Searchbar />
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Collection" element={<Collection />} />
-            <Route path="/About" element={<About />} />
-            <Route path="/Services" element={<Services />} />
-            <Route path="/Product/:ProductId" element={<Product />} />
-            <Route path="/Cart" element={<Cart />} />
-            <Route path="/Login" element={<Login />} />
-            <Route path="/place-order" element={<PlaceOrder />} />
-            <Route path="/Orders" element={<Orders />} />
-          </Routes>
+        <div className="relative">
+          {/* Navbar overlays the hero — positioned absolute with z-index */}
+          <div className="absolute top-0 left-0 w-full z-50 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+            <Navbar />
+          </div>
 
-          <Footer />
+          {/* Main content */}
+          <div className="pt-[80px] px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+            <Searchbar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/Collection" element={<Collection />} />
+              <Route path="/About" element={<About />} />
+              <Route path="/Services" element={<Services />} />
+              <Route path="/Product/:ProductId" element={<Product />} />
+              <Route path="/Cart" element={<Cart />} />
+              <Route path="/Login" element={<Login />} />
+              <Route path="/place-order" element={<PlaceOrder />} />
+              <Route path="/Orders" element={<Orders />} />
+            </Routes>
+
+            <Footer />
+          </div>
           <Analytics />
           <SpeedInsights />
         </div>
