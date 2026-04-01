@@ -30,8 +30,11 @@ const Hero = () => {
           loop
           muted
           playsInline
+          webkit-playsinline="true"
+          poster="/hero-poster.webp"
         >
           <source src="/hero.webm" type="video/webm" />
+          <source src="/hero.mp4" type="video/mp4" />
         </video>
       </div>
 
