@@ -3,7 +3,7 @@
 
 ## 🖼 Screenshots
 ### 🏠 Homepage
-![Homepage Screenshot](https://github.com/ankurraj007/Echelon-Watches/blob/main/Screenshot%202025-03-17%20192034.png?raw=true)
+![Homepage Screenshot](https://github.com/ankurraj2003/Echelon-Watches/blob/main/Screenshot%202025-03-17%20192034.png?raw=true)
 ### 🛒 Product Page
 ![Product Page Screenshot](https://github.com/ankurraj007/Echelon-Watches/blob/main/Screenshot%202025-03-17%20192045.png?raw=true)
 ### 🛒Cart Page
