@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../Context/ShopContext";
 import Title from "./Title";
 import ProductItem from "./ProductItem";
+import BlurImage from "./BlurImage";
 
 const BestSeller = () => {
   const { products } = useContext(ShopContext);
@@ -31,14 +32,15 @@ const BestSeller = () => {
             key={product._id}
           >
             <div className="w-full h-48 sm:h-64 md:h-80 bg-white-100 rounded-xl overflow-hidden transition-transform duration-300  hover:scale-110 ">
-              <img
+              <BlurImage
                 src={product.image[0]}
                 alt={product.name}
                 className="object-contain w-full h-full"
                 loading="eager"
-                fetchpriority="high"
+                fetchPriority="high"
                 width="300"
                 height="320"
+                containerClassName="w-full h-full"
               />
             </div>
             <h3 className="mt-4 font-semibold text-sm md:text-lg w-full">{product.name}</h3>

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 import { ShopContext } from "../Context/ShopContext";
 import RelatedProducts from "../Components/RelatedProducts";
+import BlurImage from "../Components/BlurImage";
 
 const Product = ({}) => {
   const { ProductId } = useParams();
@@ -32,21 +33,22 @@ const Product = ({}) => {
           {/** Thumbnails */}
           <div className="flex sm:flex-col overflow-x-auto overflow-y-scroll justify-between sm:justify-normal sm:w-[18.7%] w-full">
             {productData.image.map((item, index) => (
-              <img
+              <BlurImage
                 onClick={() => setImage(item)}
                 src={item}
                 key={index}
-                className="w-1/6 sm:w-full cursor-pointer product-image "
+                className="w-1/6 sm:w-full cursor-pointer product-image"
                 alt={`Thumbnail ${index + 1}`}
               />
             ))}
           </div>
           {/** Main Image */}
           <div className="w-full sm:w-[80%]">
-            <img
+            <BlurImage
               className="w-full max-h-[60vh] mt-20 h-auto rounded-lg object-contain"
               src={image}
               alt="Selected Product"
+              containerClassName="w-full"
             />
           </div>
         </div>

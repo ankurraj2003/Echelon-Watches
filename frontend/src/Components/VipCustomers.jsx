@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import Title from "./Title";
+import BlurImage from "./BlurImage";
 
 const VipCustomers = [
   { name: "Shah Rukh Khan", image: "/shahrukkhan.jpg" },
@@ -38,13 +39,14 @@ const VipCards = () => {
             key={index}
             className="w-80 h-64 relative flex-shrink-0 bg-gray-100 rounded-xl overflow-hidden shadow-lg border-b-slate-600"
           >
-            <img
+            <BlurImage
               src={customer.image}
               alt={customer.name}
               className="w-full h-full object-cover"
               loading="lazy"
               width="320"
               height="256"
+              containerClassName="w-full h-full"
             />
             <div className="absolute bottom-0 bg-black bg-opacity-50 w-full p-4">
               <p className="text-white text-lg font-bold">{customer.name}</p>
