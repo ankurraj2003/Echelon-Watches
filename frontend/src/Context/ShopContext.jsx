@@ -115,21 +115,6 @@ const ShopContextProvider = (props) => {
     }));
   };
 
-  // Preload only the first few visible product images (not the whole catalog)
-  // Uses a small size for preload to keep it fast
-  const preloadImages = (productList) => {
-    const visible = productList.slice(0, 8); // only above-the-fold products
-    visible.forEach((product) => {
-      if (product.image && product.image.length > 0) {
-        const link = document.createElement("link");
-        link.rel = "preload";
-        link.as = "image";
-        link.href = product.image[0]; // already optimized with w_400
-        document.head.appendChild(link);
-      }
-    });
-  };
-
   const getproductsData = async () => {
     try {
       // Try to use the early-prefetched data from the inline script in index.html
@@ -152,7 +137,6 @@ const ShopContextProvider = (props) => {
       if (data.success) {
         const optimized = optimizeProducts(data.products);
         setproducts(optimized);
-        preloadImages(optimized);
       } else {
         toast.error(data.message);
       }

@@ -32,6 +32,7 @@ const Hero = () => {
           playsInline
           webkit-playsinline="true"
           poster="/hero-poster.webp"
+          preload="metadata"
         >
           <source src="/hero.webm" type="video/webm" />
           <source src="/hero.mp4" type="video/mp4" />

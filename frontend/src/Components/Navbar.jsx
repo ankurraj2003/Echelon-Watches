@@ -25,27 +25,28 @@ const Navbar = () => {
         <img src="/logo11.png" className="w-28 sm:w-40" alt="echelon" width="160" height="67"></img>
       </Link>
       <ul className="hidden sm:flex gap-5 text-m text-grey-700 ">
-        <NavLink to="/" className="flex flex-col items-center-gap-1">
+        <li className="list-none"><NavLink to="/" className="flex flex-col items-center-gap-1">
           <p>HOME</p>
           <hr className="w-3/4 border-none h-[1.5px] bg-purple-700 hidden"></hr>
-        </NavLink>
-        <NavLink to="/Collection" className="flex flex-col items-center-gap-1">
+        </NavLink></li>
+        <li className="list-none"><NavLink to="/Collection" className="flex flex-col items-center-gap-1">
           <p>COLLECTION</p>
           <hr className="w-3/4 border-none h-[1.5px] bg-purple-700 hidden"></hr>
-        </NavLink>{" "}
-        <NavLink to="/About" className="flex flex-col items-center-gap-1">
+        </NavLink></li>
+        <li className="list-none"><NavLink to="/About" className="flex flex-col items-center-gap-1">
           <p>ABOUT</p>
           <hr className="w-3/4 border-none h-[1.5px] bg-purple-700 hidden"></hr>
-        </NavLink>
-        <NavLink to="/Services" className="flex flex-col items-center-gap-1">
-          <p> SERVICES</p>
+        </NavLink></li>
+        <li className="list-none"><NavLink to="/Services" className="flex flex-col items-center-gap-1">
+          <p>SERVICES</p>
           <hr className="w-3/4 border-none h-[1.5px] bg-purple-700 hidden"></hr>
-        </NavLink>
+        </NavLink></li>
       </ul>
       <div className="flex items-center gap-4 sm:gap-6">
         <img
           onClick={() => setShowSearch(true)}
           src="/search.png"
+          alt="Search"
           className="w-7 sm:w-9 cursor-pointer"
         ></img>
         <div className="group relative">
@@ -54,6 +55,7 @@ const Navbar = () => {
               onClick={() => (token ? null : navigate("/login"))}
               className="w-full h-full object-contain cursor-pointer"
               src="/profile.png"
+              alt="Profile"
             />
           </div>
           {token && (
@@ -81,7 +83,7 @@ const Navbar = () => {
           )}
         </div>
         <Link to="/cart" className="relative">
-          <img src="/cart.png" className="w-6 sm:w-8 min-w-5" />
+          <img src="/cart.png" alt="Cart" className="w-6 sm:w-8 min-w-5" />
           <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-purple-500 text-white aspect-square rounded-full text-[10px]">
             {getCartCount()}
           </p>
@@ -90,6 +92,7 @@ const Navbar = () => {
         <img
           onClick={() => setVisible(true)}
           src="/menu.png"
+          alt="Menu"
           className="w-6 cursor-pointer sm:hidden"
         />
       </div>
@@ -105,7 +108,7 @@ const Navbar = () => {
             onClick={() => setVisible(false)}
             className="flex items-center gap-4 p-3 cursor-pointer"
           >
-            <img className="h-6 " src="/back.svg"></img>
+            <img className="h-6 " src="/back.svg" alt="Back"></img>
             <p>BACK</p>
           </div>
           <NavLink
