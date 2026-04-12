@@ -89,30 +89,43 @@ const ShopContextProvider = (props) => {
     return totalCount;
   };
 
-  // Optimize Cloudinary URLs to serve WebP/AVIF with auto quality (60-80% smaller)
-  const optimizeCloudinaryUrl = (url) => {
-    if (typeof url === "string" && url.includes("res.cloudinary.com") && !url.includes("f_auto")) {
-      return url.replace("/upload/", "/upload/f_auto,q_auto/");
-    }
-    return url;
+  // Optimize Cloudinary URLs to serve WebP/AVIF with auto quality AND proper sizing.
+  // Without a width constraint, Cloudinary serves the original upload (often 2000-4000px)
+  // which can be 2-5 MB per image. Adding w_<size>,c_limit brings this down to ~30-100 KB.
+  const optimizeCloudinaryUrl = (url, width) => {
+    if (typeof url !== "string" || !url.includes("res.cloudinary.com")) return url;
+    // If already optimized, don't double-transform
+    if (url.includes("f_auto")) return url;
+    const transforms = width
+      ? `f_auto,q_auto,w_${width},c_limit`
+      : "f_auto,q_auto";
+    return url.replace("/upload/", `/upload/${transforms}/`);
   };
 
-  // Apply Cloudinary optimization to all product image URLs
+  // Build a URL helper that components can call with their own display width
+  const getOptimizedImageUrl = (url, width = 400) => optimizeCloudinaryUrl(url, width);
+
+  // Apply Cloudinary optimization to all product image URLs (default card size)
   const optimizeProducts = (productList) => {
     return productList.map((product) => ({
       ...product,
       image: product.image
-        ? product.image.map((img) => optimizeCloudinaryUrl(img))
+        ? product.image.map((img) => optimizeCloudinaryUrl(img, 400))
         : product.image,
     }));
   };
 
-  // Preload product images into browser cache so they render instantly
+  // Preload only the first few visible product images (not the whole catalog)
+  // Uses a small size for preload to keep it fast
   const preloadImages = (productList) => {
-    productList.forEach((product) => {
+    const visible = productList.slice(0, 8); // only above-the-fold products
+    visible.forEach((product) => {
       if (product.image && product.image.length > 0) {
-        const img = new Image();
-        img.src = product.image[0];
+        const link = document.createElement("link");
+        link.rel = "preload";
+        link.as = "image";
+        link.href = product.image[0]; // already optimized with w_400
+        document.head.appendChild(link);
       }
     });
   };
@@ -200,6 +213,7 @@ const ShopContextProvider = (props) => {
     setToken,
     token,
     setCartItems,
+    getOptimizedImageUrl,
   };
   return (
     <ShopContext.Provider value={value}>{props.children}</ShopContext.Provider>

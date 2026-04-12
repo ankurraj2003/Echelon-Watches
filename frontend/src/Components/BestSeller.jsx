@@ -37,9 +37,8 @@ const BestSeller = () => {
                 alt={product.name}
                 className="object-contain w-full h-full"
                 loading="eager"
-                fetchPriority="high"
-                width="300"
-                height="320"
+                width="400"
+                height="400"
                 containerClassName="w-full h-full"
               />
             </div>

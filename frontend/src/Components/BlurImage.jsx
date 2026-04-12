@@ -50,6 +50,7 @@ const BlurImage = ({
         alt={alt}
         width={width}
         height={height}
+        decoding="async"
         className={`blur-image-actual ${loaded ? "blur-image-loaded" : ""} ${className}`}
         onLoad={() => setLoaded(true)}
         {...rest}
