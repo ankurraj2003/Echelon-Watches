@@ -6,7 +6,7 @@ import BlurImage from "../Components/BlurImage";
 
 const Product = ({}) => {
   const { ProductId } = useParams();
-  const { products, currency, addToCart } = useContext(ShopContext);
+  const { products, currency, addToCart, getOptimizedImageUrl } = useContext(ShopContext);
   const [productData, setProductData] = useState(null);
   const [image, setImage] = useState("");
   const productRef = useRef(null);
@@ -35,10 +35,13 @@ const Product = ({}) => {
             {productData.image.map((item, index) => (
               <BlurImage
                 onClick={() => setImage(item)}
-                src={item}
+                src={getOptimizedImageUrl(item, 150)}
                 key={index}
                 className="w-1/6 sm:w-full cursor-pointer product-image"
                 alt={`Thumbnail ${index + 1}`}
+                loading="eager"
+                width="150"
+                height="150"
               />
             ))}
           </div>
@@ -46,9 +49,13 @@ const Product = ({}) => {
           <div className="w-full sm:w-[80%]">
             <BlurImage
               className="w-full max-h-[60vh] mt-20 h-auto rounded-lg object-contain"
-              src={image}
+              src={getOptimizedImageUrl(image, 800)}
               alt="Selected Product"
               containerClassName="w-full"
+              loading="eager"
+              fetchPriority="high"
+              width="800"
+              height="800"
             />
           </div>
         </div>

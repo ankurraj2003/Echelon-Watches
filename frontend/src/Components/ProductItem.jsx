@@ -8,7 +8,7 @@ const ProductItem = ({ id, image, name, price }) => {
   return (
     <Link className="text-gray-700 cursor-pointer" to={`/product/${id}`}>
       <div className="overflow-hidden">
-        <BlurImage src={image[0]} alt={name} loading="eager" fetchPriority="high" width="300" height="400" />
+        <BlurImage src={image[0]} alt={name} loading="lazy" width="400" height="400" />
       </div>
       <p className="pt-3 pb-1 text-sm md:text-base text-center">{name}</p>
       <p className="text-sm md:text-base font-medium text-green-500 font-sans text-center">
