@@ -42,7 +42,7 @@ const BestSeller = () => {
                 containerClassName="w-full h-full"
               />
             </div>
-            <h3 className="mt-4 font-semibold text-sm md:text-lg w-full">{product.name}</h3>
+            <h2 className="mt-4 font-semibold text-sm md:text-lg w-full">{product.name}</h2>
             <p className="text-green-600 font-sans mt-1">₹{product.price}</p>
           </div>
         ))}

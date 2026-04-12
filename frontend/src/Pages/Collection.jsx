@@ -186,9 +186,9 @@ const Collection = () => {
       {/**right side */}
       <div className="flex-1">
         <div className="flex justify-between text-base sm:text-2xl mb-4">
-          <p className="text-gray-500">
+          <p className="text-gray-400">
             ALL
-            <span className="text-gray-700 font-medium ml-3">COLLECTIONS</span>
+            <span className="text-gray-200 font-medium ml-3">COLLECTIONS</span>
           </p>
           <select
             onChange={(e) => setSortType(e.target.value)}
