@@ -11,8 +11,8 @@ import orderRouter from "./routes/orderRoute.js";
 // app config
 const app = express()
 const port = process.env.PORT || 5000
-connectDB()
-connectCloudinary()
+connectDB().catch(err => console.error("MongoDB Connection Error:", err));
+connectCloudinary().catch(err => console.error("Cloudinary Connection Error:", err));
 
 //middlewares
 app.use(express.json())
