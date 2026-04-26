@@ -16,13 +16,21 @@ const addProduct = async (req, res) => {
         const image4 = req.files?.image4?.[0];
 
         console.log(name, description, price, category, subCategory, bestseller);
-        console.log(image1, image2, image3, image4);
 
-        // Upload images to Cloudinary
+        // Upload images to Cloudinary using buffer (for serverless/memory storage)
         const uploadImage = async (image) => {
-            if (!image || !image.path) return null;
+            if (!image || !image.buffer) return null;
             try {
-                const result = await cloudinary.uploader.upload(image.path, { resource_type: 'image' });
+                const result = await new Promise((resolve, reject) => {
+                    const stream = cloudinary.uploader.upload_stream(
+                        { resource_type: 'image' },
+                        (error, result) => {
+                            if (error) reject(error);
+                            else resolve(result);
+                        }
+                    );
+                    stream.end(image.buffer);
+                });
                 return result.secure_url;
             } catch (error) {
                 console.error("Cloudinary Upload Error:", error);
@@ -34,7 +42,7 @@ const addProduct = async (req, res) => {
         const image2Url = await uploadImage(image2);
         const image3Url = await uploadImage(image3);
         const image4Url = await uploadImage(image4);
-        const imagesUrl = [image1Url, image2Url, image3Url, image4Url]
+        const imagesUrl = [image1Url, image2Url, image3Url, image4Url].filter(url => url !== null);
 
         const productData = {
             name, description, price: Number(price), category, subCategory, bestseller: bestseller === 'true' ? true : false, image: imagesUrl,
