@@ -30,4 +30,11 @@ app.use('/api/order', orderRouter);
 app.get('/', (req, res) => {
     res.send('API Working');
 })
+
+// Global error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack);
+    res.status(500).json({ success: false, message: err.message, stack: err.stack });
+});
+
 app.listen(port, () => console.log('Server started on port: ' + port))   
